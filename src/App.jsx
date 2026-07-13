@@ -556,8 +556,8 @@ export default function Kin260Calculator() {
                   marginBottom: 4,
                 }}>
                   {result.mode === 'relationship'
-                    ? `Combined Kin ${result.kin} · ${result.peopleCount} People`
-                    : `Kin ${result.kin}`}
+                    ? `Combined Kin Number ${result.kin} · ${result.peopleCount} People`
+                    : `Kin Number ${result.kin}`}
                 </div>
                 <h2 style={{
                   fontSize: 32,
