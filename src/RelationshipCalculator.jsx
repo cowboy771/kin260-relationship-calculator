@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 // ============================================================
 // RELATIONSHIP CALCULATOR — website standalone version
@@ -45,6 +45,23 @@ export default function RelationshipCalculator() {
   const [result, setResult] = useState(null); // combined kin result | null
   const [names, setNames] = useState(['', '']); // captured at calculate-time
   const [infoCard, setInfoCard] = useState(null); // { key, seal } | null
+
+  // Measures the hero glyph column's actual rendered position/width so
+  // InfoCard can sit exactly above it — covering the glyph but leaving
+  // the cross grid visible on desktop, full-width on mobile. See the
+  // matching note in KinCalculator.jsx.
+  const heroColumnRef = useRef(null);
+  const [anchor, setAnchor] = useState({ left: 0, width: '100%' });
+
+  useEffect(() => {
+    const el = heroColumnRef.current;
+    if (!el) return;
+    const measure = () => setAnchor({ left: el.offsetLeft, width: el.offsetWidth });
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [result]);
 
   const handleCalculate = () => {
     const combined = calculateCombinedKin([dateA, dateB]);
@@ -181,6 +198,7 @@ export default function RelationshipCalculator() {
             chart={result.chart}
             dailyMode
             onPositionSelect={(key, tappedSeal) => setInfoCard({ key, seal: tappedSeal })}
+            heroColumnRef={heroColumnRef}
             headerLeft={
               <div>
                 <div style={{
@@ -227,6 +245,8 @@ export default function RelationshipCalculator() {
             positionInfo={RELATIONSHIP_POSITION_INFO}
             sealPositionText={RELATIONSHIP_SEAL_POSITION_TEXT}
             contextLabel="Your Combined Chart"
+            anchorLeft={anchor.left}
+            anchorWidth={anchor.width}
           />
         )}
 
