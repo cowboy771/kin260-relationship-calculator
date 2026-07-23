@@ -36,15 +36,16 @@ const COLORS = {
   jungle: '#2C4A2E',
 };
 
-// Matches the point where OracleDisplay's two-column flex row (hero
-// glyph flex-basis 260px + cross grid flex-basis 280px + 48px gap =
-// ~588px) naturally wraps to a single stacked column. Measured against
-// this component's own rendered width rather than the browser
-// viewport — the Squarespace page template narrows the content column
-// well below the full browser width, so viewport-based detection
-// (InfoCard's old default) picks the wrong layout on desktop browsers.
-// See the note in InfoCard.jsx for the full explanation.
-const DESKTOP_CONTAINER_THRESHOLD = 620;
+// Matches OracleDisplay's own already-tested wrap breakpoint (previously
+// applied via window.matchMedia at 700/701px). Measured against this
+// component's own rendered width rather than the browser viewport —
+// the Squarespace page template narrows the content column well below
+// the full browser width, so viewport-based detection (InfoCard's old
+// default) picks the wrong layout on desktop browsers. See the note in
+// InfoCard.jsx for the full explanation. (An earlier version of this
+// used 620px, calculated naively from raw flex-basis values — that
+// ignored the cross-grid's real minimum content size and under-fired.)
+const DESKTOP_CONTAINER_THRESHOLD = 701;
 
 export default function RelationshipCalculator() {
   const [nameA, setNameA] = useState('');
