@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 
 // ============================================================
 // RELATIONSHIP CALCULATOR — website standalone version
@@ -36,17 +36,6 @@ const COLORS = {
   jungle: '#2C4A2E',
 };
 
-// Matches OracleDisplay's own already-tested wrap breakpoint (previously
-// applied via window.matchMedia at 700/701px). Measured against this
-// component's own rendered width rather than the browser viewport —
-// the Squarespace page template narrows the content column well below
-// the full browser width, so viewport-based detection (InfoCard's old
-// default) picks the wrong layout on desktop browsers. See the note in
-// InfoCard.jsx for the full explanation. (An earlier version of this
-// used 620px, calculated naively from raw flex-basis values — that
-// ignored the cross-grid's real minimum content size and under-fired.)
-const DESKTOP_CONTAINER_THRESHOLD = 701;
-
 export default function RelationshipCalculator() {
   const [nameA, setNameA] = useState('');
   const [dateA, setDateA] = useState('1990-01-01');
@@ -56,23 +45,6 @@ export default function RelationshipCalculator() {
   const [result, setResult] = useState(null); // combined kin result | null
   const [names, setNames] = useState(['', '']); // captured at calculate-time
   const [infoCard, setInfoCard] = useState(null); // { key, seal } | null
-
-  // Measures the wrapper div's own rendered width (not the viewport) so
-  // the Info Card's desktop/mobile split always agrees with whatever
-  // width OracleDisplay actually has to work with.
-  const wrapperRef = useRef(null);
-  const [isDesktopCard, setIsDesktopCard] = useState(false);
-
-  useEffect(() => {
-    const el = wrapperRef.current;
-    if (!el) return;
-    const observer = new ResizeObserver((entries) => {
-      const width = entries[0].contentRect.width;
-      setIsDesktopCard(width >= DESKTOP_CONTAINER_THRESHOLD);
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   const handleCalculate = () => {
     const combined = calculateCombinedKin([dateA, dateB]);
@@ -112,7 +84,7 @@ export default function RelationshipCalculator() {
       padding: '40px 24px 24px',
       color: '#1a1714',
     }}>
-      <div ref={wrapperRef} style={{ maxWidth: 900, margin: '0 auto', position: 'relative' }}>
+      <div style={{ maxWidth: 900, margin: '0 auto', position: 'relative' }}>
         {!result && (
           <div style={{ textAlign: 'center', maxWidth: 480, margin: '40px auto' }}>
             <h1 style={{
@@ -255,7 +227,6 @@ export default function RelationshipCalculator() {
             positionInfo={RELATIONSHIP_POSITION_INFO}
             sealPositionText={RELATIONSHIP_SEAL_POSITION_TEXT}
             contextLabel="Your Combined Chart"
-            isDesktop={isDesktopCard}
           />
         )}
 
