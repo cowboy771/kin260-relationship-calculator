@@ -128,7 +128,7 @@ export default function RelationshipCalculator() {
               marginBottom: 24,
               lineHeight: 1.15,
             }}>
-              See what your energies<br />create together.
+              See Your Relationship Codes
             </h1>
             <p style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
@@ -136,7 +136,7 @@ export default function RelationshipCalculator() {
               color: '#1a1714',
               marginBottom: 32,
             }}>
-              Enter both birth dates to reveal your Combined Kin.
+              Strengths, struggles and the path to the highest version of what you could be together.
             </p>
 
             <div style={{
