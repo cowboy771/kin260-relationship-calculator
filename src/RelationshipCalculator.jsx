@@ -123,8 +123,8 @@ export default function RelationshipCalculator() {
           <div style={{ textAlign: 'center', maxWidth: 480, margin: '40px auto' }}>
             <h1 style={{
               fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
-              fontSize: 40,
-              fontWeight: 700,
+              fontSize: 26,
+              fontWeight: 500,
               textTransform: 'uppercase',
               letterSpacing: '0.01em',
               marginBottom: 24,
