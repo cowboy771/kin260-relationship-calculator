@@ -138,7 +138,7 @@ export default function RelationshipCalculator() {
               color: '#1a1714',
               marginBottom: 32,
             }}>
-              Enter both birth dates to reveal your Combined Kin.
+              Enter both birth dates to reveal your combined codes.
             </p>
 
             <div style={{
