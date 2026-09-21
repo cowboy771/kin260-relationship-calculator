@@ -32,7 +32,7 @@ const COLORS = {
   crimson: '#8B0000',
   cobalt: '#1B2A8A',
   amber: '#D4A017',
-  cream: '#F5F0E4',
+  cream: '#F7F6F1',
   jungle: '#2C4A2E',
 };
 
@@ -107,7 +107,7 @@ export default function RelationshipCalculator() {
     letterSpacing: '0.08em',
     color: '#8a8076',
     marginBottom: 6,
-    fontFamily: "'Helvetica Neue', Arial, sans-serif",
+    fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
   };
 
   return (
@@ -128,7 +128,7 @@ export default function RelationshipCalculator() {
               marginBottom: 24,
               lineHeight: 1.15,
             }}>
-              See Your Relationship Codes
+              See what your energies<br />create together.
             </h1>
             <p style={{
               fontFamily: "'Cormorant Garamond', 'Georgia', serif",
@@ -136,7 +136,7 @@ export default function RelationshipCalculator() {
               color: '#1a1714',
               marginBottom: 32,
             }}>
-              Strengths, struggles and the path to the highest version of what you could be together.
+              Enter both birth dates to reveal your Combined Kin.
             </p>
 
             <div style={{
@@ -187,12 +187,11 @@ export default function RelationshipCalculator() {
                 style={{
                   padding: '16px 40px',
                   fontSize: 14,
-                  fontWeight: 500,
-                  fontFamily: "'Cormorant Garamond', 'Georgia', serif",
-                  background: '#1a1714',
-                  color: COLORS.cream,
+                  fontWeight: 700,
+                  fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
+                  background: 'none',
+                  color: '#1a1714',
                   border: 'none',
-                  borderRadius: 999,
                   cursor: 'pointer',
                   letterSpacing: '0.04em',
                   textTransform: 'uppercase',
@@ -222,7 +221,7 @@ export default function RelationshipCalculator() {
                 <div style={{
                   fontSize: 13,
                   color: '#8a8076',
-                  fontFamily: "'Helvetica Neue', Arial, sans-serif",
+                  fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
                   textTransform: 'uppercase',
                   letterSpacing: '0.06em',
                   marginBottom: 6,
@@ -300,7 +299,7 @@ export default function RelationshipCalculator() {
                 fontSize: 13,
                 cursor: 'pointer',
                 textDecoration: 'underline',
-                fontFamily: "'Helvetica Neue', Arial, sans-serif",
+                fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
               }}
             >
               Calculate a different pair
