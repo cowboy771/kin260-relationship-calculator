@@ -124,7 +124,8 @@ export default function RelationshipCalculator() {
             <h1 style={{
               fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
               fontSize: 40,
-              fontWeight: 400,
+              fontWeight: 700,
+              textTransform: 'uppercase',
               letterSpacing: '0.01em',
               marginBottom: 24,
               lineHeight: 1.15,
