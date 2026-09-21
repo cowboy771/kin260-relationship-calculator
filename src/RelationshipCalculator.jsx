@@ -122,6 +122,7 @@ export default function RelationshipCalculator() {
         {!result && (
           <div style={{ textAlign: 'center', maxWidth: 480, margin: '40px auto' }}>
             <h1 style={{
+              fontFamily: "'Inter', 'Helvetica Neue', Arial, sans-serif",
               fontSize: 40,
               fontWeight: 400,
               letterSpacing: '0.01em',
@@ -197,7 +198,7 @@ export default function RelationshipCalculator() {
                   textTransform: 'uppercase',
                 }}
               >
-                Reveal Combined Kin
+                Reveal our combined codes <span style={{ textDecoration: 'underline' }}>here</span>
               </button>
             </div>
           </div>
